@@ -14,10 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         youtubedownloader.cpp \
-    helpdialog.cpp
+    helpdialog.cpp \
+    videosettings.cpp \
+    playlistsettings.cpp
 
 HEADERS  += youtubedownloader.hpp \
-    helpdialog.hpp
+    helpdialog.hpp \
+    videosettings.hpp \
+    playlistsettings.hpp
 
 FORMS    += youtubedownloader.ui \
-    helpdialog.ui
+    helpdialog.ui \
+    videosettings.ui \
+    playlistsettings.ui

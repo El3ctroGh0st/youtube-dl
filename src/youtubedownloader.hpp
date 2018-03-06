@@ -5,6 +5,8 @@
 #include <QProcess>
 #include <QString>
 
+#include "videosettings.hpp"
+
 namespace Ui {
 class YoutubeDownloader;
 }
@@ -32,6 +34,8 @@ private:
 
     QString commandArgument;
     QProcess *cmd = nullptr;
+
+    VideoSettings *vSettings = nullptr;
 };
 
 #endif // YOUTUBEDOWNLOADER_HPP

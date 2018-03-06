@@ -20,9 +20,15 @@ YoutubeDownloader::YoutubeDownloader(QWidget *parent) :
     checkApplication();
     getData();
 
+    vSettings = new VideoSettings(this);
+
+    ui->mainLayout->addWidget(vSettings);
+
     //UI connections
     connect(ui->actionHelp, &QAction::triggered, this, &YoutubeDownloader::viewHelp);
     connect(ui->actionVersion, &QAction::triggered, this, &YoutubeDownloader::viewVersion);
+
+    connect(vSettings, &VideoSettings::inputChanged, this, [this] {ui->confirmationButton->setEnabled(vSettings->getFieldsFilled());});
 }
 
 YoutubeDownloader::~YoutubeDownloader()
@@ -59,7 +65,6 @@ void YoutubeDownloader::getData()
 
     version = "Current version: " + QString(cmd->readAll());
     version.remove(QRegExp("[\\r\\n]"));
-    qDebug() << version;
 }
 
 void YoutubeDownloader::viewHelp()
